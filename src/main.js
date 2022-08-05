@@ -6,6 +6,22 @@ const STORAGE_KEY = 'BOOK_APPS';
 
 document.addEventListener(RENDER_EVENT_DATA, function(){
   console.log(buku);
+
+  const unComplateBookList = document.getElementById('completeBookshelfList');
+  unComplateBookList.innerHTML = '';
+
+  const completeBookList = document.getElementById('incompleteBookshelfList') ;
+  completeBookList,innerHTML = '';
+
+  for(const bookItem of buku){
+    const bookElement = makeBookObject(bookItem);
+    if(!bookItem.isComplete){
+        unComplateBookList.append(bookElement);
+    }else{
+        completeBookList.append(bookElement);
+    }
+  }
+  
 })
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -61,7 +77,7 @@ function makeBookObject(bookObject){
     const tahunBuat = document.createElement('p');
     tahunBuat.innerText = bookObject.year;
     
-    const tombolHapus = createElement('button');
+    const tombolHapus = document.createElement('button');
     tombolHapus.innerText = 'Hapus buku';
     tombolHapus.classList.add('red');
 
@@ -76,7 +92,7 @@ function makeBookObject(bookObject){
 
 
     if(bookObject.isComplete){
-    const tombolBelumSelesai = createElement('button');
+    const tombolBelumSelesai = document.createElement('button');
     tombolBelumSelesai.innerText = 'Belum selesai di Baca';
     tombolBelumSelesai.classList.add('green');
 
@@ -90,7 +106,7 @@ function makeBookObject(bookObject){
 
     container.append(tombolHapus,tombolBelumSelesai);
     }else{
-    const tombolSelesai = createElement('button');
+    const tombolSelesai = document.createElement('button');
     tombolSelesai.innerText = 'Selesai dibaca';
     tombolSelesai.classList.add('green');
     
@@ -102,7 +118,7 @@ function makeBookObject(bookObject){
         removeBook(bookObject.id);
     });
 
-    container.append(tombolHapus,tombolSelesai);
+    container.append(tombolHapus, tombolSelesai);
     }
 
     return article;
