@@ -83,7 +83,6 @@ function makeBookObject(bookObject){
 
     const container = document.createElement('div');
     container.classList.add('action');
-    container.append(tombolSelesai, tombolHapus);
     
     const article = document.createElement('article');
     article.classList.add('book_item');
