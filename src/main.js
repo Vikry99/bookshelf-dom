@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
   searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
     searchBook();
-    searchForm.reset();
     document.dispatchEvent(new Event(RENDER_EVENT_DATA));
+    searchForm.reset();
   });
 
   submitForm.addEventListener("submit", function (event) {
