@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
     searchBook();
+    searchForm.reset();
     document.dispatchEvent(new Event(RENDER_EVENT_DATA));
   });
 
@@ -161,7 +162,7 @@ function searchBook() {
   const bookTitle = document.getElementById("searchBookTitle").value;
 
   const searchBook = buku.filter(function (book) {
-    const bookName = book.bookTitle.toLowerCase();
+    const bookName = book.title.toLowerCase();
 
     return bookName.includes(bookTitle.toLowerCase());
   });
