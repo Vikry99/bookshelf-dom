@@ -1,12 +1,9 @@
 const buku = [];
-
 const RENDER_EVENT_DATA = "event-book";
 const SAVED_BOOK = "saved-book";
 const STORAGE_KEY = "BOOK_APPS";
 
 document.addEventListener(RENDER_EVENT_DATA, function () {
-  console.log(buku);
-
   const unComplateBookList = document.getElementById("completeBookshelfList");
   unComplateBookList.innerHTML = "";
 
